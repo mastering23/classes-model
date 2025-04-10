@@ -1,8 +1,12 @@
-class Model():
-  table = False
-  def __init__(self):
-    if not self.table:
-      print("Error, Table has not been define ")
+from abc import ABC,abstractmethod
+
+#abc mean absctract class
+
+class Model(ABC):
+  @property
+  @abstractmethod
+  def table(self):
+    pass
 
   def save (self):
     print(F"saving {self.table} en BD")
@@ -13,6 +17,7 @@ class Model():
 class User(Model):
   table = "user"
 
+#model = model()
 user = User()
 user.save()
 user.searchById("121")
